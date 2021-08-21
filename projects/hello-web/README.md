@@ -1,4 +1,4 @@
-# Go Examples: hello-web
+# Docker Go Examples: hello-web
 
 ## Build the binary without parameters
 

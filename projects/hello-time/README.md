@@ -1,4 +1,4 @@
-# Go Examples: hello-time
+# Docker Go Examples: hello-time
 
 ## Build main.go without parameters
 

@@ -1,4 +1,4 @@
-# Go Examples: hello
+# Docker Go Examples: hello
 
 ## The simplest build without dependencies
 
