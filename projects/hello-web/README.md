@@ -50,6 +50,12 @@
   go build -o build/main src/main.go
   ```
 
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello-web:main -f build/Dockerfile.main .
+  ```
+
 * Run the container
 
   ```bash
@@ -117,6 +123,12 @@
   CGO_ENABLED=0 go build -o build/main src/main.go
   ```
 
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello-web:main-cgo0 -f build/Dockerfile.main-cgo0 .
+  ```
+
 * Run the container
 
   ```bash
@@ -158,4 +170,5 @@
   This is one of the cases when disabling CGO helps even if we don't have
   embedded C source code or anything which requires CGO enabled, since
   the dependencies could require it.
+  If we don't need those parts of the dependencies, then we can get rid of them.
 

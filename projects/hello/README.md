@@ -31,6 +31,12 @@
   ../../bin/build-image.sh main
   ```
 
+  It will generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello:main -f build/Dockerfile.main .
+  ```
+
 * Run the container version of the previous program
 
   ```bash
@@ -75,6 +81,12 @@
   ../../bin/build-image.sh mainc
   ```
 
+  It will generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello:mainc -f build/Dockerfile.mainc .
+  ```
+
 * Run the container version of the previous program
 
   ```bash
@@ -101,8 +113,13 @@
   go build -o build/mainc -ldflags '-extldflags "-static" ' src/mainc.go
   ```
 
-  "LD" in "ldflags" means "Linker Directive". It will pass those flags to the external linker
-  like "gcc".
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello:mainc-static -f build/Dockerfile.mainc-static .
+  ```
+
+  **Note:** "LD" in "ldflags" means "Linker Directive". It will pass those flags to the external linker like "gcc".
 
 * Run the new container which has the required libraries inside.
 
@@ -121,7 +138,7 @@
   docker image ls localhost/go-examples/hello:* --format '{{ .Tag }} {{ .Size }}' | column -t | sort
   ```
 
-  Note: ```{{ .Tag }} {{ .Size }}``` is a [Go template](https://pkg.go.dev/text/template)
+  **Note:** ```{{ .Tag }} {{ .Size }}``` is a [Go template](https://pkg.go.dev/text/template)
 
   Output
 
@@ -145,6 +162,12 @@
 
   ```bash
   go build -o build/mainc -ldflags '-extldflags "-static" -s ' src/mainc.go
+  ```
+
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello:mainc-static-st0 -f build/Dockerfile.mainc-static-st0 .
   ```
 
 * Run the container
@@ -177,7 +200,7 @@
 
   ```-s``` disables the symbol table completely. When ```-s``` is used ```-w``` is not necessary.
 
-  Note: You can ommit these options in case you want to use a debugger tool like gdb.
+  **Note:** You can ommit these options in case you want to use a debugger tool like gdb.
 
 
 * The smallest image can be achieved with the previous options when you don't need any static library
@@ -190,6 +213,12 @@
 
   ```bash
   go build -o build/main -ldflags '-s ' src/main.go 
+  ```
+
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello:main-st0 -f build/Dockerfile.main-st0 .
   ```
 
   It wouldn't work with "mainc" however.
@@ -235,7 +264,7 @@
   It will generate and execute the following command:
 
   ```bash
-  CGO_ENABLED=0 go build -o build/mainc -ldflags '-extldflags "-static" ' src/mainc.go
+  CGO_ENABLED=0 go build -o build/mainc ' src/mainc.go
   ```
 
   Output

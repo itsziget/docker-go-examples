@@ -38,6 +38,12 @@
   go build -o build/main src/main.go
   ```
 
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello-time:main -f build/Dockerfile.main 
+  ```
+
 * Run the container
 
   ```bash
@@ -72,6 +78,12 @@
   go build -o build/main -tags timetzdata src/main.go
   ```
 
+  and generate the Dockerfile and execute the Docker build command
+
+  ```bash
+  docker build -t localhost/go-examples/hello-time:main-tz -f build/Dockerfile.main-tz .
+  ```
+
   Go source codes can define tags which must be used in the build command
   in order to build those files. "timetzdata" tag means build the timezone information
   into the binary. On the host operating system, you could find the information in
@@ -99,3 +111,5 @@
   main     1.42MB
   main-tz  1.85MB
   ```
+
+  "main-tz" is a little bigger, but this is the only working container version
