@@ -69,7 +69,7 @@
   ```
 
   Last time we used the "--static" option to solve this.
-  It woud not help this time, since the problem is a missing library
+  It woud not help this time, since the problem is not a missing library
   but a reference to a library which we do not actually need.
 
 * Run
