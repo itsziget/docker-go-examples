@@ -119,7 +119,7 @@
   docker build -t localhost/go-examples/hello:mainc-static -f build/Dockerfile.mainc-static .
   ```
 
-  **Note:** "LD" in "ldflags" means "Linker Directive". It will pass those flags to the external linker like "gcc".
+  **Note:** "LD" in "ldflags" means "Linker Directive". After that the "extldflags" rleated to the external linker, like "gcc".
 
 * Run the new container which has the required libraries inside.
 
