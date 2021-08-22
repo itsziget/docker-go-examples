@@ -146,7 +146,6 @@
   main              1.22MB
   mainc             1.3MB
   mainc-static      2.36MB
-  mainc-static-st0  1.67MB
   ```
 
 ## Decrease the size of the image
