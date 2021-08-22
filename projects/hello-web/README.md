@@ -14,7 +14,7 @@
   go build -o build/main src/main.go
   ```
 
-* Run the generated binaryto start the webserver which will listen on port 8180
+* Run the generated binary to start the webserver which will listen on port 8180
 
   ```bash
   ./build/main
