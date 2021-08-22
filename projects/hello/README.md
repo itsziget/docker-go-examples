@@ -263,7 +263,7 @@
   It will generate and execute the following command:
 
   ```bash
-  CGO_ENABLED=0 go build -o build/mainc ' src/mainc.go
+  CGO_ENABLED=0 go build -o build/mainc src/mainc.go
   ```
 
   Output
